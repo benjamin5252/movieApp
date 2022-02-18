@@ -1,0 +1,25 @@
+{
+  "name": "movieApp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "",
+    "core-js": "",
+    "nuxt": "",
+    "vue": "",
+    "vue-server-renderer": "",
+    "vue-template-compiler": "",
+    "webpack": ""
+  },
+  "devDependencies": {
+    "fibers": "^5.0.1",
+    "sass": "^1.49.8",
+    "sass-loader": "^10.2.1"
+  }
+}
