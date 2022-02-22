@@ -8,6 +8,8 @@
       <input type="text" @keyup.enter="$fetch" placeholder="Search" v-model="searchInput"/>
       <button @click="clearSearch" v-show="searchInput" class="button">Clear Search</button>
     </div>
+    <!-- Loading -->
+    <Loading v-if="$fetchState.pending"/>
     <!-- Movies -->
     <div class="container movies">
       <!-- Searched -->
@@ -72,8 +74,29 @@
 
 <script>
 import axios from 'axios'
+import Loading from '~/components/Loading.vue'
 export default {
+  components: { Loading },
   name: 'IndexPage',
+  head () {
+    return {
+      title: 'Movie App - Latest Streaming Info Here',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Get all the latest streaming movies in theaters & online',
+
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'movies, stream, streaming',
+          
+        }
+      ]
+    }
+  },
   data() {
     return {
       movies: [],
@@ -88,7 +111,7 @@ export default {
       result.data.results.forEach(movie => {
         this.movies.push(movie)
       })
-      console.log(this.movies)
+      console.log("hi")
     },
     async searchMovies () {
       const data = axios.get(`https://api.themoviedb.org/3/search/movie?api_key=ba9e810f75de1fbaf29ce1f3351c8426&language=en-US&page=1&query=${this.searchInput}`)
